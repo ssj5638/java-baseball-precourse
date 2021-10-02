@@ -19,4 +19,12 @@ public class PlayResult {
     public void setBall() {
         ++this.ball;
     }
+
+    public boolean isNothing() {
+        return ball == 0 && strike == 0;
+    }
+
+    public boolean isPlayOver() {
+        return strike == 3;
+    }
 }

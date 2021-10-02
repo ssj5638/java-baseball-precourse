@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class BallsTest {
 
@@ -16,6 +17,7 @@ public class BallsTest {
 
         assertEquals(0, playResult.getStrike());
         assertEquals(0, playResult.getBall());
+        assertTrue(playResult.isNothing());
     }
 
     @Test
@@ -32,5 +34,6 @@ public class BallsTest {
 
         assertEquals(3, playResult.getStrike());
         assertEquals(0, playResult.getBall());
+        assertTrue(playResult.isPlayOver());
     }
 }
