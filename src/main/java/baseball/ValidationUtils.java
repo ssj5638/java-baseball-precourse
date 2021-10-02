@@ -2,9 +2,9 @@ package baseball;
 
 import java.util.List;
 
-public class Valid {
+public class ValidationUtils {
 
-    public static boolean lengthCheck(String strBalls) {
+    public static boolean lengthValid(String strBalls) {
         if (strBalls.length() != 3) {
             return false;
         }
