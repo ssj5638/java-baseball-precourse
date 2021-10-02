@@ -8,4 +8,11 @@ public class Valid {
         }
         return true;
     }
+
+    public static boolean numberValid(int ball) {
+        if (ball < 1 || ball > 9) {
+            return false;
+        }
+        return true;
+    }
 }
