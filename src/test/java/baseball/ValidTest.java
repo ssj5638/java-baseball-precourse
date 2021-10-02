@@ -2,11 +2,13 @@ package baseball;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import java.util.Arrays;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ValidTest {
-
-    Valid valid = new Valid();
 
     @Test
     void 입력_길이_체크() {
@@ -23,5 +25,17 @@ public class ValidTest {
         assertFalse(Valid.numberValid(10));
         assertFalse(Valid.numberValid(-1));
         assertFalse(Valid.numberValid(0));
+    }
+
+    @Test
+    void 중복_숫자_확인_true() {
+        List<Integer> ballList = Arrays.asList(1, 2, 3);
+        assertTrue(Valid.duplicateValid(ballList));
+    }
+
+    @Test
+    void 중복_숫자_확인_false() {
+        List<Integer> ballList = Arrays.asList(4, 4, 3);
+        assertFalse(Valid.duplicateValid(ballList));
     }
 }
