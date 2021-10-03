@@ -8,16 +8,8 @@ public class PlayResult {
         return strike;
     }
 
-    public void setStrike() {
-        ++this.strike;
-    }
-
     public int getBall() {
         return ball;
-    }
-
-    public void setBall() {
-        ++this.ball;
     }
 
     public boolean isNothing() {
@@ -26,5 +18,14 @@ public class PlayResult {
 
     public boolean isPlayOver() {
         return strike == 3;
+    }
+
+    public void report(BallStatus ballStatus) {
+        if (ballStatus == BallStatus.BALL) {
+            ball++;
+        }
+        if (ballStatus == BallStatus.STRIKE) {
+            strike++;
+        }
     }
 }

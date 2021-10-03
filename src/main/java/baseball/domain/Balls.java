@@ -24,17 +24,10 @@ public class Balls {
     // TODO : indent depth 줄이기
     public PlayResult play(List<Integer> ballList) {
         PlayResult playResult = new PlayResult();
-        BallStatus ballStatus;
+        List<Ball> userBalls = ballMap(ballList);
         for (Ball comball : comBalls) {
-            for (int i = 0; i < ballList.size(); i++) {
-                ballStatus = comball.play(new Ball(i, ballList.get(i)));
-
-                if (ballStatus == BallStatus.BALL) {
-                    playResult.setBall();
-                }
-                if (ballStatus == BallStatus.STRIKE) {
-                    playResult.setStrike();
-                }
+            for (Ball userBall : userBalls) {
+                playResult.report(comball.play(userBall));
             }
         }
 
