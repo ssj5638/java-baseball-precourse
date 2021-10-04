@@ -38,4 +38,12 @@ public class ValidationUtilsTest {
         List<Integer> ballList = Arrays.asList(4, 4, 3);
         assertFalse(ValidationUtils.duplicateValid(ballList));
     }
+
+    @Test
+    void 스트림_numberValid_확인() {
+        List<Integer> ballList = Arrays.asList(0, 4, 3);
+        assertTrue(ballList.stream().anyMatch(num -> !ValidationUtils.numberValid(num)));
+        ballList = Arrays.asList(9, 1, 4);
+        assertFalse(ballList.stream().anyMatch(num -> !ValidationUtils.numberValid(num)));
+    }
 }

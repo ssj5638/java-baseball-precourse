@@ -31,16 +31,12 @@ public class Balls {
         return ballMap;
     }
 
-    // TODO : indent depth 줄이기
     public PlayResult play(List<Integer> ballList) {
         PlayResult playResult = new PlayResult();
         List<Ball> userBalls = ballList(ballList);
-        for (Ball comball : comBalls) {
-            for (Ball userBall : userBalls) {
-                playResult.report(comball.play(userBall));
-            }
+        for (Ball comBall : comBalls) {
+            userBalls.stream().forEach(userBall -> playResult.report(comBall.play(userBall)));
         }
-
         return playResult;
     }
 }

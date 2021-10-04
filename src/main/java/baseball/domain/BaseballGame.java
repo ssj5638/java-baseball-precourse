@@ -36,7 +36,6 @@ public class BaseballGame {
         }
     }
 
-    // TODO : indent depth 줄이기
     private void playJudgment(String strBalls) {
         if (!lengthValid(strBalls)) {
             System.out.println("1에서 9까지의 서로 다른 숫자 3개를 입력해 주세요.");
@@ -47,10 +46,12 @@ public class BaseballGame {
         List<Integer> ballList = new ArrayList<>();
         for (int i = 0; i < strBalls.length(); i++) {
             ball = Integer.parseInt(strBalls.substring(i, i + 1));
-            if (!numberValid(ball)) {
-                return;
-            }
             ballList.add(ball);
+        }
+
+        if (ballList.stream().anyMatch(num -> !numberValid(num))) {
+            System.out.println("1에서 9까지의 서로 다른 숫자 3개를 입력해 주세요.");
+            return;
         }
 
         if (!duplicateValid(ballList)) {
